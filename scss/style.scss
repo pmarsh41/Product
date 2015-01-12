@@ -1,0 +1,98 @@
+@import "../bower_components/normalize-scss/_normalize.scss";
+@import "../bower_components/typeplate-starter-kit/css/_typeplate.scss";
+@mixin gridify($col, $width, $gutter: 2) {
+    @media only screen and (min-width: #{$width}#{"px"}){
+        .grid-#{$col}-#{$width} {
+            & > * {
+                width: #{(100 / $col) - $gutter}#{"%"};
+            }
+        }
+    }
+}
+
+/**
+ * BOX-SIZING
+ */
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+/**
+ * GRIDS
+ */
+
+
+.grid {
+    width: 100%;
+    display: block;
+    font-size: 0;
+    text-align: justify;
+    position: relative;
+
+    & > * {
+        font-size: medium;
+        text-align: left;
+        display: inline-block;
+        width: 100%;
+        vertical-align: top;
+    }
+
+    &:after {
+        display: inline-block;
+        width: 100%;
+        content: "";
+        font-size: medium;
+    }
+}
+
+@include gridify(2, 400); // creates .grid-2-400
+@include gridify(4, 600);
+@include gridify(3, 600);
+
+/**
+ * GENERAL
+ */
+
+body {
+    transition: opacity .25s ease;
+}
+
+.grid-5 > * {
+    width: 20%;
+}
+
+.column {
+    // max-width: 33%;
+    border: teal solid 2.5px;
+}
+
+img {
+    width: 100%;
+}
+
+ul {
+    padding-left: 0;
+}
+
+li {
+    padding: .75rem;
+}
+
+button {
+    border: black solid 2px;
+    background-color: white;
+}
+
+title {
+    position: relative
+}
+.price {
+
+    position: absolute;
+    right: 0;
+    font-size: 25px;
+font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+   font-weight: 300;
+   color: black;
+}
